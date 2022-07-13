@@ -17,7 +17,8 @@
 const app_user_goal = Vue.createApp({
     data() {
         return {
-            courseGoal: "Finish the curse and learn VueJS!"
+            courseGoal: "Finish the curse and learn VueJS!",
+            vueLink: "https://vuejs.org"
         };
     }
 });
