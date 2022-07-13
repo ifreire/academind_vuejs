@@ -1,28 +1,25 @@
-// const buttonEl = document.querySelector('button');
-// const inputEl = document.querySelector('input');
-// const listEl = document.querySelector('ul');
+// const user_goal_app = Vue.createApp({
+//     data() {
+//         return {
+//             goals: [],
+//             enteredValue: "",
+//         };
+//     },
+//     methods: {
+//         addGoal() {
+//             this.goals.push(this.enteredValue);
+//             this.enteredValue = "";
+//         },
+//     },
+// }).mount("#app");
 
-// function addGoal() {
-//     const enteredValue = inputEl.value;
-//     const lisItemEl = document.createElement('li');
-//     lisItemEl.textContent = enteredValue;
-//     listEl.appendChild(lisItemEl);
-//     inputEl.value = "";
-// }
 
-// buttonEl.addEventListener('click', addGoal);1
-
-Vue.createApp({
+const app_user_goal = Vue.createApp({
     data() {
         return {
-            goals: [],
-            enteredValue: ''
+            courseGoal: "Finish the curse and learn VueJS!"
         };
-    },
-    methods: {
-        addGoal() {
-            this.goals.push(this.enteredValue);
-            this.enteredValue = "";
-        }
     }
-}).mount('#app');
+});
+
+app_user_goal.mount('#user-goal');
