@@ -20,6 +20,15 @@ const app_user_goal = Vue.createApp({
             courseGoal: "Finish the curse and learn VueJS!",
             vueLink: "https://vuejs.org"
         };
+    },
+    methods: {
+        outputGoal() {
+            const randomNumber = Math.random();
+            if (randomNumber < 0.5)
+                return "Learn VueJS!";
+            else
+                return "Master VueJS!";
+        }
     }
 });
 
