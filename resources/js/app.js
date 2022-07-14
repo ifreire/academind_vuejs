@@ -14,25 +14,44 @@
 // }).mount("#app");
 
 
-const app_user_goal = Vue.createApp({
+// const app_user_goal = Vue.createApp({
+//     data() {
+//         return {
+//             courseGoal: "Learn VueJS!",
+//             courseGoalA: "Finish the curse and learn VueJS!",
+//             courseGoalB: "<h2>Master VueJS and build amazing apps!</h2>",
+//             vueLink: "https://vuejs.org"
+//         };
+//     },
+//     methods: {
+//         outputGoal() {
+//             const randomNumber = Math.random();
+
+//             if (randomNumber < 0.5)
+//                 return this.courseGoalA;
+//             else
+//                 return this.courseGoalB;
+//         }
+//     }
+// });
+
+// app_user_goal.mount('#user-goal');
+
+
+const app = Vue.createApp({
     data() {
         return {
-            courseGoal: "Learn VueJS!",
-            courseGoalA: "Finish the curse and learn VueJS!",
-            courseGoalB: "<h2>Master VueJS and build amazing apps!</h2>",
-            vueLink: "https://vuejs.org"
+            counter: 0,
         };
     },
     methods: {
-        outputGoal() {
-            const randomNumber = Math.random();
-
-            if (randomNumber < 0.5)
-                return this.courseGoalA;
-            else
-                return this.courseGoalB;
+        add() {
+            this.counter++;
+        },
+        sub() {
+            this.counter--;
         }
     }
 });
 
-app_user_goal.mount('#user-goal');
+app.mount('#events');
