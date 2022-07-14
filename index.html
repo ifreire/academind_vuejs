@@ -15,7 +15,7 @@
     
     </head>
 
-    <body>
+    <body v-on:click.right="nothing">
 
         <header>
 
@@ -29,8 +29,15 @@
             <button v-on:click="addCounter(5)">Add 5</button>
             <button v-on:click="subCounter(5)">Remove 5</button>
             <p>Result: {{ counter }}</p>
-            <input type="text" v-on:input="setName($event, 'Freire')" />
-            <p>Your name: {{ name }}</p>
+            <input type="text" v-on:input="setName($event, 'Freire')" v-on:keyup.enter="confirmName" />
+            <p>Your name: {{ confirmedName }}</p>
+
+            <form v-on:submit.prevent="submitForm($event)">
+
+                <input type="text" v-on:input="" />
+                <button>Sign Up</button>
+
+            </form>
         
         </section>
         
