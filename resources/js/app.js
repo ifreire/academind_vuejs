@@ -29,10 +29,22 @@ const app = Vue.createApp({
             this.name = "";
         },
         outputFullname() {
+            console.log('outputFullname');
+            
             if (this.name === '')
                 return '';
             
-                return this.name + ' ' + 'Freire';
+            return this.name + ' ' + 'Freire';
+        }
+    },
+    computed: {
+        fullname() {
+            console.log('fullname');
+
+            if (this.name === '')
+                return '';
+            
+            return this.name + ' Freire';
         }
     }
 });

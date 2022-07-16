@@ -34,8 +34,9 @@
             <input type="text" v-model="name" v-on:keyup.enter="confirmName" />
             <button v-on:click="resetInput">Reset input</button>
             <p>Your name: {{ name }}</p>
-            <p>Your fullname: {{ outputFullname() }}</p>
+            <p>Your output Fullname: {{ outputFullname() }}</p>
             <p>Your confirmed name: {{ confirmedName }}</p>
+            <p>Your computed fullname: {{ fullname }}</p>
 
             <form v-on:submit.prevent="submitForm($event)">
 
