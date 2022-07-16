@@ -32,6 +32,7 @@
             <p>Result: {{ counter }}</p>
             <!-- <input type="text" v-bind:value="name" v-on:input="setName($event)" v-on:keyup.enter="confirmName" /> -->
             <input type="text" v-model="name" v-on:keyup.enter="confirmName" />
+            <input type="text" v-model="lastName" v-on:keyup.enter="confirmName" />
             <button v-on:click="resetInput">Reset input</button>
             <p>Your name: {{ name }}</p>
             <p>Your output Fullname: {{ outputFullname() }}</p>
