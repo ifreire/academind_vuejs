@@ -26,22 +26,26 @@
         <section id="events">
 
             <h2>Events in Action</h2>
-            <button v-on:click="addCounter(5)">Add 5</button>
+            <!-- "v-on:click" shortcut is @click -->
+            <button @click="addCounter(5)">Add 5</button>
             <button v-on:click="subCounter(5)">Remove 5</button>
             <p v-once="">Starting counter: {{ counter }}</p>
             <p>Result: {{ counter }}</p>
+            <!-- "v-bind:value" shortcut is :value -->
             <!-- <input type="text" v-bind:value="name" v-on:input="setName($event)" v-on:keyup.enter="confirmName" /> -->
+            <!-- <input type="text" :value="name" v-on:input="setName($event)" v-on:keyup.enter="confirmName" /> -->
+            <!-- "v-bind:value v-on:input" shortcut is v-model -->
             <input type="text" v-model="name" v-on:keyup.enter="confirmName" />
             <input type="text" v-model="lastName" v-on:keyup.enter="confirmName" />
-            <button v-on:click="resetInput">Reset input</button>
+            <button @click="resetInput">Reset input</button>
             <p>Your name: {{ name }}</p>
             <p>Your output Fullname: {{ outputFullname() }}</p>
             <p>Your confirmed name: {{ confirmedName }}</p>
             <p>Your computed fullname: {{ fullname }}</p>
 
-            <form v-on:submit.prevent="submitForm($event)">
+            <form @submit.prevent="submitForm($event)">
 
-                <input type="text" v-on:input="" />
+                <input type="text" @input="" />
                 <button>Sign Up</button>
 
             </form>
