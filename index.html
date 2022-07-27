@@ -51,6 +51,16 @@
             </form>
         
         </section>
+
+        <header>
+            <h1>Vue Dynamic Styling</h1>
+        </header>
+
+        <section id="styling">
+            <div class="demo" @click="boxSelected('A')" :style="{borderColor: boxAselected ? 'red' : '#CCC'}"></div>
+            <div class="demo" @click="boxSelected('B')" :style="{borderColor: boxBselected ? 'blue' : '#CCC'}"></div>
+            <div class="demo" @click="boxSelected('C')" :style="{borderColor: boxCselected ? 'green' : '#CCC'}"></div>
+        </section>
         
     </body>
 

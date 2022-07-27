@@ -1,11 +1,10 @@
-const app = Vue.createApp({
+const events = Vue.createApp({
     data() {
         return {
             counter: 0,
             name: "",
             lastName: "",
             confirmedName: "",
-            //fullname: ""
         };
     },
     methods: {
@@ -18,14 +17,8 @@ const app = Vue.createApp({
         setName(event) {
             this.name = event.target.value;
         },
-        submitForm() {
-            //
-        },
         confirmName() {
             this.confirmedName = this.name;
-        },
-        nothing() {
-            //
         },
         resetInput() {
             this.name = "";
@@ -42,7 +35,7 @@ const app = Vue.createApp({
     computed: {
         fullname() {
             console.log('fullname');
-
+            
             if (this.name === '' || this.lastName === '')
                 return '';
             
@@ -50,18 +43,6 @@ const app = Vue.createApp({
         }
     },
     watch: {
-        // name(value) {
-        //     if (value === '')
-        //         this.fullname = '';
-        //     else
-        //         this.fullname = value + ' Freire';
-        // },
-        // lastName(value) {
-        //     if (value === '')
-        //         this.fullname = '';
-        //     else
-        //         this.fullname = this.name + ' ' + value;
-        // }
         counter(value) {
             if (value > 50) {
                 const that = this;
@@ -73,4 +54,34 @@ const app = Vue.createApp({
     }
 });
 
-app.mount('#events');
+const styling = Vue.createApp({
+    data() {
+        return {
+            boxAselected: false,
+            boxBselected: false,
+            boxCselected: false,
+        };
+    },
+    methods: {
+        boxSelected(box) {
+            if (box ==="A") {
+                this.boxAselected = true;
+                this.boxBselected = false;
+                this.boxCselected = false;
+            }
+            else if (box ==="B") {
+                this.boxAselected = false;
+                this.boxBselected = true;
+                this.boxCselected = false;
+            }
+            else if (box ==="C") {
+                this.boxAselected = false;
+                this.boxBselected = false;
+                this.boxCselected = true;
+            }
+        }
+    }
+});
+
+events.mount('#events');
+styling.mount('#styling');
