@@ -53,13 +53,23 @@
         </section>
 
         <header>
-            <h1>Vue Dynamic Styling</h1>
+            <h1>Vue Dynamic Styling Click</h1>
         </header>
 
-        <section id="styling">
+        <section id="styling_click">
             <div class="demo" @click="boxSelected('A')" :style="{borderColor: boxAselected ? 'red' : '#CCC'}"></div>
             <div class="demo" @click="boxSelected('B')" :style="{borderColor: boxBselected ? 'blue' : '#CCC'}"></div>
             <div class="demo" @click="boxSelected('C')" :style="{borderColor: boxCselected ? 'green' : '#CCC'}"></div>
+        </section>
+
+        <header>
+            <h1>Vue Dynamic Styling Mouse Over</h1>
+        </header>
+        
+        <section id="styling_mouseover">
+            <div class="demo" @mouseover="boxSelected('A')" @mouseleave="boxOut" :style="{borderColor: boxAselected ? 'red' : '#CCC'}"></div>
+            <div class="demo" @mouseover="boxSelected('B')" @mouseleave="boxOut" :style="{borderColor: boxBselected ? 'blue' : '#CCC'}"></div>
+            <div class="demo" @mouseover="boxSelected('C')" @mouseleave="boxOut" :style="{borderColor: boxCselected ? 'green' : '#CCC'}"></div>
         </section>
         
     </body>

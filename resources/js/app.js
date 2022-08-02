@@ -54,7 +54,7 @@ const events = Vue.createApp({
     }
 });
 
-const styling = Vue.createApp({
+const styling_click = Vue.createApp({
     data() {
         return {
             boxAselected: false,
@@ -83,5 +83,41 @@ const styling = Vue.createApp({
     }
 });
 
+const styling_mouseover = Vue.createApp({
+    data() {
+        return {
+            boxAselected: false,
+            boxBselected: false,
+            boxCselected: false,
+        };
+    },
+    methods: {
+        boxSelected(box) {
+            if (box ==="A") {
+                this.boxAselected = true;
+                this.boxBselected = false;
+                this.boxCselected = false;
+            }
+            else if (box ==="B") {
+                this.boxAselected = false;
+                this.boxBselected = true;
+                this.boxCselected = false;
+            }
+            else if (box ==="C") {
+                this.boxAselected = false;
+                this.boxBselected = false;
+                this.boxCselected = true;
+            }
+        },
+
+        boxOut() {
+            this.boxAselected = false;
+            this.boxBselected = false;
+            this.boxCselected = false;
+        }
+    }
+});
+
 events.mount('#events');
-styling.mount('#styling');
+styling_click.mount('#styling_click');
+styling_mouseover.mount("#styling_mouseover");
