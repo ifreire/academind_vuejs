@@ -65,19 +65,13 @@ const styling_click = Vue.createApp({
     methods: {
         boxSelected(box) {
             if (box ==="A") {
-                this.boxAselected = true;
-                this.boxBselected = false;
-                this.boxCselected = false;
+                this.boxAselected = !this.boxAselected;
             }
             else if (box ==="B") {
-                this.boxAselected = false;
-                this.boxBselected = true;
-                this.boxCselected = false;
+                this.boxBselected = !this.boxBselected;
             }
             else if (box ==="C") {
-                this.boxAselected = false;
-                this.boxBselected = false;
-                this.boxCselected = true;
+                this.boxCselected = !this.boxCselected;
             }
         }
     }

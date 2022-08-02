@@ -93,3 +93,15 @@ header {
     margin: 16px;
     border: 2px dashed #ccc;
 }
+
+.activeA {
+    border-color: red;
+}
+
+.activeB {
+    border-color: blue;
+}
+
+.activeC {
+    border-color: green;
+}

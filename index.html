@@ -57,9 +57,9 @@
         </header>
 
         <section id="styling_click">
-            <div class="demo" @click="boxSelected('A')" :style="{borderColor: boxAselected ? 'red' : '#CCC'}"></div>
-            <div class="demo" @click="boxSelected('B')" :style="{borderColor: boxBselected ? 'blue' : '#CCC'}"></div>
-            <div class="demo" @click="boxSelected('C')" :style="{borderColor: boxCselected ? 'green' : '#CCC'}"></div>
+            <div class="demo" :class="{activeA: boxAselected}" @click="boxSelected('A')"></div>
+            <div class="demo" :class="{activeB: boxBselected}" @click="boxSelected('B')"></div>
+            <div class="demo" :class="{activeC: boxCselected}" @click="boxSelected('C')"></div>
         </section>
 
         <header>
