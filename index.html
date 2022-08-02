@@ -57,7 +57,7 @@
         </header>
 
         <section id="styling_click">
-            <div class="demo" :class="{activeA: boxAselected}" @click="boxSelected('A')"></div>
+            <div class="demo" :class="boxAClasses" @click="boxSelected('A')"></div>
             <div class="demo" :class="{activeB: boxBselected}" @click="boxSelected('B')"></div>
             <div class="demo" :class="{activeC: boxCselected}" @click="boxSelected('C')"></div>
         </section>
@@ -67,9 +67,9 @@
         </header>
         
         <section id="styling_mouseover">
-            <div class="demo" @mouseover="boxSelected('A')" @mouseleave="boxOut" :style="{borderColor: boxAselected ? 'red' : '#CCC'}"></div>
-            <div class="demo" @mouseover="boxSelected('B')" @mouseleave="boxOut" :style="{borderColor: boxBselected ? 'blue' : '#CCC'}"></div>
-            <div class="demo" @mouseover="boxSelected('C')" @mouseleave="boxOut" :style="{borderColor: boxCselected ? 'green' : '#CCC'}"></div>
+            <div class="demo" @mouseover="boxOver('A')" @mouseleave="boxOut('A')" :style="{borderColor: boxAselected ? 'red' : '#CCC'}"></div>
+            <div class="demo" @mouseover="boxOver('B')" @mouseleave="boxOut('B')" :style="{borderColor: boxBselected ? 'blue' : '#CCC'}"></div>
+            <div class="demo" @mouseover="boxOver('C')" @mouseleave="boxOut('C')" :style="{borderColor: boxCselected ? 'green' : '#CCC'}"></div>
         </section>
         
     </body>
