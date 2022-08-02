@@ -64,17 +64,17 @@ const styling_click = Vue.createApp({
     },
     methods: {
         boxSelected(box) {
-            if (box ==="A")
+            if (box === "A")
                 this.boxAselected = !this.boxAselected;
-            else if (box ==="B")
+            else if (box === "B")
                 this.boxBselected = !this.boxBselected;
-            else if (box ==="C")
+            else if (box === "C")
                 this.boxCselected = !this.boxCselected;
         }
     },
     computed: {
         boxAClasses() {
-            return { activeA: this.boxAselected };
+            return ['demo', { activeA: this.boxAselected }];
         },
         boxBClasses() {
             return { activeB: this.boxBselected };
@@ -91,30 +91,40 @@ const styling_mouseover = Vue.createApp({
             boxAselected: false,
             boxBselected: false,
             boxCselected: false,
+            boxDSelected: false,
         };
     },
     methods: {
         boxOver(box) {
-            if (box ==="A") {
+            if (box === "A")
                 this.boxAselected = !this.boxAselected;
-            }
-            else if (box ==="B") {
+            else if (box === "B")
                 this.boxBselected = !this.boxBselected;
-            }
-            else if (box ==="C") {
+            else if (box === "C")
                 this.boxCselected = !this.boxCselected;
-            }
+            else if (box === "D")
+                this.boxDSelected = !this.boxDSelected;
         },
         boxOut(box) {
-            if (box ==="A") {
+            if (box === "A")
                 this.boxAselected = !this.boxAselected;
-            }
-            else if (box ==="B") {
+            else if (box === "B")
                 this.boxBselected = !this.boxBselected;
-            }
-            else if (box ==="C") {
+            else if (box === "C")
                 this.boxCselected = !this.boxCselected;
-            }
+            else if (box === "D")
+                this.boxDSelected = !this.boxDSelected;
+        }
+    },
+    computed: {
+        boxAClasses() {
+            return { activeA: this.boxAselected };
+        },
+        boxBClasses() {
+            return { activeB: this.boxBselected };
+        },
+        boxCClasses() {
+            return { activeC: this.boxCselected };
         }
     }
 });
