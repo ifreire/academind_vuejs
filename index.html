@@ -1,78 +1,52 @@
 <!DOCTYPE html>
-<html lang="pt-BR">
-
+<html lang="en">
     <head>
-
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <title>Vue Basics</title>
         <link href="https://fonts.googleapis.com/css2?family=Jost:wght@400;700&display=swap" rel="stylesheet" />
         <link rel="stylesheet" href="resources/css/styles.css" />
-        
         <script src="https://unpkg.com/vue@next" defer></script>
-        <!-- <script src="https://unpkg.com/vue@3" defer></script> -->
         <script src="resources/js/app.js" defer></script>
-    
     </head>
 
-    <body v-on:click.right="nothing">
-
+    <body>
         <header>
-
-            <h1>Vue Events</h1>
-        
+            <h1>Vue Course Goals</h1>
         </header>
         
-        <section id="events">
-
-            <h2>Events in Action</h2>
-            <!-- "v-on:click" shortcut is @click -->
-            <button @click="addCounter(5)">Add 5</button>
-            <button v-on:click="subCounter(5)">Remove 5</button>
-            <p v-once="">Starting counter: {{ counter }}</p>
-            <p>Result: {{ counter }}</p>
-            <!-- "v-bind:value" shortcut is :value -->
-            <!-- <input type="text" v-bind:value="name" v-on:input="setName($event)" v-on:keyup.enter="confirmName" /> -->
-            <!-- <input type="text" :value="name" v-on:input="setName($event)" v-on:keyup.enter="confirmName" /> -->
-            <!-- "v-bind:value v-on:input" shortcut is v-model -->
-            <input type="text" v-model="name" v-on:keyup.enter="confirmName" />
-            <input type="text" v-model="lastName" v-on:keyup.enter="confirmName" />
-            <button @click="resetInput">Reset input</button>
-            <p>Your name: {{ name }}</p>
-            <p>Your output Fullname: {{ outputFullname() }}</p>
-            <p>Your confirmed name: {{ confirmedName }}</p>
-            <p>Your computed fullname: {{ fullname }}</p>
-
-            <form @submit.prevent="submitForm($event)">
-
-                <input type="text" @input="" />
-                <button>Sign Up</button>
-
-            </form>
-        
+        <section id="user-goals">
+            <h2>My course goals</h2>
+            <input type="text" v-model="enteredGoalValue" />
+            <button @click="addGoal">Add Goal</button>
+            <p v-if="goals.length === 0">No goals have been added yet - please start adding some!</p>
+            <ul v-else-if="goals.length > 0">
+                <li v-for="(goal, index) in goals" :key="goal" @click="removeGoal(index)">
+                    <p>{{ index }} - {{ goal }}</p>
+                    <input type="text" @click.stop />
+                </li>
+            </ul>
+            
+            <!--
+            <ul>
+                <li v-for="num in 10">{{ num }}</li>
+            </ul>
+            -->
+            
+            <!--
+            <ul>
+                <li v-for="(value, key, index) in {name: 'Iuri', age:40}">{{key}} - {{ value }} - {{ index }}</li>
+            </ul>
+            -->
+            
+            <!--
+                v-show is not recommended to business/security rules.
+                It's recomended to elements that can change their visility a lot.
+            -->
+            <!-- <p v-show="goals.length === 0">No goals have been added yet - please start adding some!</p>
+            <ul v-show="goals.length > 0">
+                <li>Goals</li>
+            </ul> -->
         </section>
-
-        <header>
-            <h1>Vue Dynamic Styling Click</h1>
-        </header>
-
-        <section id="styling_click">
-            <div class="demo" :class="boxAClasses" @click="boxSelected('A')"></div>
-            <div class="demo" :class="boxBClasses" @click="boxSelected('B')"></div>
-            <div class="demo" :class="boxCClasses" @click="boxSelected('C')"></div>
-        </section>
-
-        <header>
-            <h1>Vue Dynamic Styling Mouse Over</h1>
-        </header>
-        
-        <section id="styling_mouseover">
-            <div class="demo" :class="boxAClasses" @mouseover="boxOver('A')" @mouseleave="boxOut('A')"></div>
-            <div class="demo" :class="boxBClasses" @mouseover="boxOver('B')" @mouseleave="boxOut('B')"></div>
-            <div class="demo" :class="boxCClasses" @mouseover="boxOver('C')" @mouseleave="boxOut('C')"></div>
-            <div :class="['demo', {activeD: boxDSelected}]" @mouseover="boxOver('D')" @mouseleave="boxOut('D')"></div>
-        </section>
-        
     </body>
-
 </html>
