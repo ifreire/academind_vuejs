@@ -4,50 +4,69 @@
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <title>Vue Basics</title>
-        <link href="https://fonts.googleapis.com/css2?family=Jost:wght@400;700&display=swap" rel="stylesheet" />
+        <link
+            href="https://fonts.googleapis.com/css2?family=Jost:wght@400;700&display=swap"
+            rel="stylesheet"
+        />
         <link rel="stylesheet" href="resources/css/styles.css" />
         <script src="https://unpkg.com/vue@next" defer></script>
         <script src="resources/js/app.js" defer></script>
     </head>
-
     <body>
         <header>
-            <h1>Vue Course Goals</h1>
+            <h1>Monster Slayer</h1>
         </header>
-        
-        <section id="user-goals">
-            <h2>My course goals</h2>
-            <input type="text" v-model="enteredGoalValue" />
-            <button @click="addGoal">Add Goal</button>
-            <p v-if="goals.length === 0">No goals have been added yet - please start adding some!</p>
-            <ul v-else-if="goals.length > 0">
-                <li v-for="(goal, index) in goals" :key="goal" @click="removeGoal(index)">
-                    <p>{{ index }} - {{ goal }}</p>
-                    <input type="text" @click.stop />
-                </li>
-            </ul>
-            
-            <!--
-            <ul>
-                <li v-for="num in 10">{{ num }}</li>
-            </ul>
-            -->
-            
-            <!--
-            <ul>
-                <li v-for="(value, key, index) in {name: 'Iuri', age:40}">{{key}} - {{ value }} - {{ index }}</li>
-            </ul>
-            -->
-            
-            <!--
-                v-show is not recommended to business/security rules.
-                It's recomended to elements that can change their visility a lot.
-            -->
-            <!-- <p v-show="goals.length === 0">No goals have been added yet - please start adding some!</p>
-            <ul v-show="goals.length > 0">
-                <li>Goals</li>
-            </ul> -->
-            
-        </section>
+        <div id="game">
+            <section id="monster" class="container">
+                <h2>Monster Health</h2>
+                <div class="healthbar">
+                    <div class="healthbar__value" :style="monsterBarStyles"></div>
+                </div>
+            </section>
+            <section id="player" class="container">
+                <h2>Your Health</h2>
+                <div class="healthbar">
+                    <div class="healthbar__value" :style="playerBarStyles"></div>
+                </div>
+            </section>
+            <section class="container" v-if="winner">
+                <h2>Game Over!</h2>
+                <h3 v-if="winner === 'PLAYER'">You won!</h3>
+                <h3 v-else-if="winner === 'MONSTER'">You lost!</h3>
+                <h3 v-else>Draw!</h3>
+                <button @click="newGame()">Start a new game!</button>
+            </section>
+            <section id="controls" v-else>
+                <button @click="playerAttack()">ATTACK</button>
+                <button @click="specialAttack()" :disabled="mayUseSpecialAttack">SPECIAL ATTACK</button>
+                <button @click="heal()">HEAL</button>
+                <button @click="surrender()">SURRENDER</button>
+            </section>
+            <section id="log" class="container">
+                <h2>Battle Log</h2>
+                <ul>
+                    <li v-for="logMsg in logMessages">
+                        <span :class="{
+                            'log--player': logMsg.character === 'PLAYER',
+                            'log--monster': logMsg.character === 'MONSTER',
+                        }">
+                            {{ logMsg.character }}
+                        </span>
+                        <span v-if="logMsg.action === 'heal'">
+                            heals himself for
+                            <span class="log--heal">
+                                {{ logMsg.value }}
+                            </span>
+                        </span>
+                        <span v-else>
+                            attacks and deals
+                            <span class="log--damage">
+                                {{ logMsg.value }}
+                            </span>
+                        </span>
+                    </li>
+                </ul>
+            </section>
+        </div>
     </body>
 </html>
