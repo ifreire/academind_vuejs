@@ -4,13 +4,20 @@
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <title>Vue Basics</title>
+        
         <link
             href="https://fonts.googleapis.com/css2?family=Jost:wght@400;700&display=swap"
             rel="stylesheet"
         />
-        <link rel="stylesheet" href="resources/css/styles.css" />
+        <link
+            href="resources/css/styles.css"
+            rel="stylesheet"
+        />
+        
+        <!-- <script src="https://code.jquery.com/jquery-3.6.4.min.js" defer></script> -->
         <script src="https://unpkg.com/vue@next" defer></script>
-        <script src="resources/js/app.js" defer></script>
+        <!-- <script src="resources/js/app.js" defer></script> -->
+        <script type="module" src="resources/js/app.js" defer></script>
     </head>
     <body>
         <header>
@@ -18,22 +25,18 @@
         </header>
         <section id="app">
             <ul>
-                <li>
-                    <h2>Manuel Lorenz</h2>
-                    <button>Show Details</button>
-                    <ul>
-                        <li><strong>Phone:</strong> 01234 5678 991</li>
-                        <li><strong>Email:</strong> manuel@localhost.com</li>
+                <!-- <li v-for="phoneItem in phoneList" :key="phoneItem.id">
+                    <h2>{{ phoneItem.id }} - {{ phoneItem.name }}</h2>
+                    <button @click="toggleDetails()">{{ isDetailsVisible ? 'Hide' : 'Show' }} Details</button>
+                    <ul v-if="isDetailsVisible">
+                        <li><strong>Phone:</strong> {{ phoneItem.phone }}</li>
+                        <li><strong>Email:</strong> {{ phoneItem.email }}</li>
                     </ul>
-                </li>
-                <li>
-                    <h2>Julie Jones</h2>
-                    <button>Show Details</button>
-                    <ul>
-                        <li><strong>Phone:</strong> 09876 543 221</li>
-                        <li><strong>Email:</strong> julie@localhost.com</li>
-                    </ul>
-                </li>
+                </li> -->
+
+                <user-contact></user-contact>
+                <user-contact></user-contact>
+                <user-contact></user-contact>
             </ul>
         </section>
     </body>

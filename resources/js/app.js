@@ -1,49 +1,53 @@
 /*
 <script>
-    import data from '../json/data.json';
+    
 </script>
 */
+
+import data from '../json/data.json' assert {type: 'json'};
 
 const app = Vue.createApp({
     data() {
         return {
             currentUserInput: "",
             message: "Vue is great!",
+            phoneList: []
         };
     },
-    methods: {
-        saveInput(event) {
-            this.currentUserInput = event.target.value;
-        },
-        setText() {
-            // this.message = this.currentUserInput;
-            this.message = this.$refs.userText.value;
-        },
-    },
-    beforeCreate() {
-        console.log("beforeCreate()");
-    },
     created() {
-        console.log("created()");
+        this.phoneList = data;
     },
-    beforeMount() {
-        console.log("beforeMount()");
+});
+
+app.component('user-contact', {
+    template: 
+    `
+    <li>
+        <h2>{{ phoneItem.id }} - {{ phoneItem.name }}</h2>
+        <button @click="toggleDetails()">{{ isDetailsVisible ? 'Hide' : 'Show' }} Details</button>
+        <ul v-if="isDetailsVisible">
+            <li><strong>Phone:</strong> {{ phoneItem.phone }}</li>
+            <li><strong>Email:</strong> {{ phoneItem.email }}</li>
+        </ul>
+    </li>
+    `
+    ,
+    data() {
+        return {
+            isDetailsVisible: false,
+            phoneItem: {
+                id: 1,
+                name: "Manuel Lorenz",
+                phone: "01234 5678 991",
+                email: "manuel@localhost.com"
+            },
+        }
     },
-    mounted() {
-        console.log("mounted()");
-    },
-    beforeUpdate() {
-        console.log("beforeUpdate()");
-    },
-    updated() {
-        console.log("updated()");
-    },
-    beforeUnmount() {
-        console.log("beforeUnmount()");
-    },
-    unmounted() {
-        console.log("unmounted()");
-    },
+    methods: {
+        toggleDetails() {
+            this.isDetailsVisible = !this.isDetailsVisible;
+        },
+    }
 });
 
 app.mount("#app");
