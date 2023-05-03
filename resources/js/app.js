@@ -1,3 +1,9 @@
+/*
+<script>
+    import data from '../json/data.json';
+</script>
+*/
+
 const app = Vue.createApp({
     data() {
         return {
