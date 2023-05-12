@@ -2,3 +2,6 @@ testing push.
 add line.
 add one more line.
 add another line.
+
+
+git remote set-url origin https://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@github.com/ifreire/academind_vuejs.git
