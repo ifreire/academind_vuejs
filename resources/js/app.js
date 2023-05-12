@@ -35,12 +35,13 @@ app.component('user-contact', {
     data() {
         return {
             isDetailsVisible: false,
-            phoneItem: {
-                id: 1,
-                name: "Manuel Lorenz",
-                phone: "01234 5678 991",
-                email: "manuel@localhost.com"
-            },
+            phoneItem: data,
+            // phoneItem: {
+            //     id: 1,
+            //     name: "Manuel Lorenz",
+            //     phone: "01234 5678 991",
+            //     email: "manuel@localhost.com"
+            // },
         }
     },
     methods: {
