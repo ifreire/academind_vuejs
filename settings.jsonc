@@ -1,0 +1,230 @@
+{
+    // This goes into your VSCode settings.json (or workspace settings in .vscode/settings.json)
+    /*
+     * File-related configs and settings
+     *
+     */
+    // Show file paths in status bar
+    // Requires ActiveFileInStatusBar VSCode extension
+    "ActiveFileInStatusBar.fullpath": true,
+    // File/folder exclusion from workspace visibility in IDE
+    "files.exclude": {
+        "**/node_modules": true,
+        "**/pnpm-lock.yaml": true,
+        "amplify/.config": true,
+        "amplify/**/*-parameters.json": true,
+        "amplify/**/amplify.state": true,
+        "amplify/**/transform.conf.json": true,
+        "amplify/#current-cloud-backend": true,
+        "amplify/backend/amplify-meta.json": true,
+        "amplify/backend/awscloudformation": true
+    },
+    // Custom file associations
+    "files.associations": {
+        "*.css": "postcss",
+        "*.template": "yaml"
+    },
+    /*
+     * TypeScript + JavaScript language configs and settings
+     *
+     */
+    // Lock VSCode typescript version to project typescript
+    "typescript.tsdk": "packages/client/node_modules/typescript/lib",
+    // Configure formatting --> then --> linting IN SEQUENCE
+    // Requires "Format Code Action" VSCode Extension
+    "[typescript, javascript]": {
+        "editor.codeActionsOnSave": [
+            "source.formatDocument",
+            "source.fixAll.eslint"
+        ],
+        "editor.defaultFormatter": "esbenp.prettier-vscode",
+        "editor.formatOnSave": false
+    },
+    // Prettier settings - runs with "source.formatDocument"
+    "prettier.configPath": "./packages/client/.prettierrc",
+    "prettier.enable": true,
+    "prettier.enableDebugLogs": true,
+    // ESLint settings - runs with "source.fixAll.eslint"
+    "eslint.alwaysShowStatus": true,
+    "eslint.debug": false,
+    "eslint.format.enable": true,
+    "eslint.options": {
+        "configFile": "./packages/client/.eslintrc.js"
+    },
+    "eslint.probe": [
+        "javascript",
+        "typescript",
+        "vue"
+    ],
+    "eslint.validate": [
+        "javascript",
+        "typescript",
+        "vue"
+    ],
+    /*
+     * Vue language support configs and settings
+     *
+     */
+    "[vue]": {
+        "editor.codeActionsOnSave": [
+            "source.formatDocument",
+            "source.fixAll.eslint"
+        ],
+        "editor.defaultFormatter": "esbenp.prettier-vscode",
+        "editor.formatOnSave": false
+    },
+    // We use Volar instead of Vetur because it's faster, cleaner, and simpler
+    "volar.icon.finder": true,
+    "volar.icon.preview": true,
+    "volar.tsPlugin": true,
+    "volar.tsPluginStatus": true,
+    /*
+     * YAML language configs and settings
+     *
+     */
+    "[yaml]": {
+        "editor.defaultFormatter": "redhat.vscode-yaml",
+        "editor.formatOnSave": true,
+        "editor.insertSpaces": true,
+        "editor.quickSuggestions": {
+            "comments": false,
+            "other": true,
+            "strings": true
+        },
+        "editor.tabSize": 2
+    },
+    "yaml.format.enable": true,
+    "yaml.validate": false,
+    // AWS Coudformation-specific YAML settings
+    "cfnLint.enableAutocomplete": true,
+    "cfnLint.path": "~/.pyenv/shims/cfn-lint",
+    "cfnLint.validateUsingJsonSchema": true,
+    "yaml.customTags": [
+        "!And sequence",
+        "!And",
+        "!Base64",
+        "!Cidr",
+        "!Equals sequence",
+        "!Equals",
+        "!FindInMap sequence",
+        "!FindInMap",
+        "!GetAZs",
+        "!GetAtt",
+        "!If sequence",
+        "!If",
+        "!ImportValue sequence",
+        "!ImportValue",
+        "!Join sequence",
+        "!Join",
+        "!Not sequence",
+        "!Not",
+        "!Or sequence",
+        "!Or",
+        "!Ref",
+        "!Select sequence",
+        "!Select",
+        "!Split sequence",
+        "!Split",
+        "!Sub sequence",
+        "!Sub"
+    ],
+    /*
+     * Internationalization Settings
+     * Requiers i18n-ally VSCode extension
+     */
+    "i18n-ally.keystyle": "nested",
+    "i18n-ally.localesPaths": [
+        "packages/client/locales",
+        "locales"
+    ],
+    "i18n-ally.sortKeys": true,
+    // VScode Editor settings
+    // Requires "Format Code Action" VSCode Extension
+    "editor.codeActionsOnSave": [
+        "source.formatDocument",
+        "source.fixAll.eslint"
+    ],
+    "editor.colorDecorators": false,
+    "editor.defaultFormatter": "esbenp.prettier-vscode",
+    "editor.fontLigatures": true,
+    "editor.formatOnSave": false,
+    "editor.highlightActiveIndentGuide": false,
+    "editor.linkedEditing": true,
+    "editor.minimap.enabled": false,
+    "editor.renderIndentGuides": false,
+    "editor.renderWhitespace": "none",
+    "editor.rulers": [
+        80
+    ],
+    "editor.wordWrap": "on",
+    // Workbench settings & customization
+    "workbench.colorCustomizations": {
+        "editor.selectionBackground": "#135564",
+        "editor.selectionHighlightBackground": "#135564",
+        "editorRuler.foreground": "#F9A620",
+        "editorSuggestWidget.selectedBackground": "#F9A620",
+        "list.activeSelectionBackground": "#495057",
+        "list.activeSelectionForeground": "#8d99ae",
+        "list.focusBackground": "#ff0000",
+        "list.hoverForeground": "#ffffff",
+        "tab.activeBackground": "#135564"
+    },
+    "workbench.colorTheme": "ƒ - AYU - Operator Mono/Italic",
+    "workbench.fontAliasing": "auto",
+    "workbench.iconTheme": "vscode-great-icons",
+    // Misc settings
+    "git.ignoreLimitWarning": true,
+    "html.format.wrapAttributes": "force-expand-multiline",
+    // Custom workspace dictionary (worth the investment!)
+    // Requires "CSpell" VSCode extension
+    "cSpell.words": [
+        "abdonrd",
+        "antfu",
+        "arrow",
+        "attributify",
+        "authv",
+        "autoexports",
+        "aws",
+        "awsconfig",
+        "awsmobile",
+        "beepbeep",
+        "beepos",
+        "cli",
+        "compatible",
+        "dependencies",
+        "dev",
+        "devalue",
+        "follow",
+        "headlessui",
+        "heroicons",
+        "iconify",
+        "inputmask",
+        "loglevel",
+        "nprogress",
+        "nuxt",
+        "parens",
+        "passcode",
+        "pinia",
+        "pnpm",
+        "pnpx",
+        "primecalendar",
+        "primeicons",
+        "primevue",
+        "repos",
+        "runtimes",
+        "signedin",
+        "signin",
+        "signout",
+        "signouts",
+        "stelth",
+        "stroustrup",
+        "unauth",
+        "urlparam",
+        "uuidv",
+        "vitejs",
+        "Vitesse",
+        "vue",
+        "vueuse",
+        "windi"
+    ]
+}
