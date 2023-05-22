@@ -1,6 +1,6 @@
 module.exports = {
     extends: ["@antfu", "vue-global-api"],
-
+    
     rules: {
         /*
         * ESLint core rules
@@ -63,7 +63,7 @@ module.exports = {
                 // ignores: ['pre', 'textarea', ...INLINE_ELEMENTS],
             },
         ],
-
+        
         /*
         * TypeScript rules
         * these are mostly a matter of preference - change as desired!
