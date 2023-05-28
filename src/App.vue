@@ -7,7 +7,9 @@
 
 <template>
     <div>
-        <img src="/vite-deno.svg" alt="Vite with Deno" />
+        <a href="https://www.youtube.com/watch?v=MDPauM8fZDE&t=1090s" target="_blank">
+            <img src="/vite-deno.svg" alt="Vite with Deno" />
+        </a>
         <div>
             <a href="https://vitejs.dev" target="_blank">
                 <img src="/vite.svg" class="logo" alt="Vite logo" />
@@ -16,7 +18,7 @@
                 <img src="./assets/vue.svg" class="logo vue" alt="Vue logo" />
             </a>
         </div>
-        <HelloWorld msg="Vite + Vue" />
+        <HelloWorld msg="Deno + Vite + Vue" />
     </div>
 </template>
 
