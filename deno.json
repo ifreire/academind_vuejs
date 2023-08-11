@@ -1,7 +1,7 @@
 {
     "tasks": {
         "dev": "deno run -A --node-modules-dir npm:vite",
-        "devapi": "deno run -A --node-modules-dir npm:vite & deno run -A api/main.ts",
+        "devapi": "deno run -A --node-modules-dir npm:vite & deno run -A src/main.ts",
         "build": "deno run -A --node-modules-dir npm:vite build",
         "preview": "deno run -A --node-modules-dir npm:vite preview",
         "serve": "deno run --allow-net --allow-read https://deno.land/std@0.157.0/http/file_server.ts dist/"
